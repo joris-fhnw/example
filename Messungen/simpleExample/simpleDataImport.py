@@ -14,6 +14,11 @@ df = df.reset_index(drop=True)
 df.Uhrzeit = pd.to_datetime(df.Uhrzeit,dayfirst=True) #Uhrzteit to datetime
 df = df.astype({col: float for col in df.columns[1:]}) #Datentyp in float ändern (alle ausser Uhrzeit)
 
+"Beispiel: Mittelwertbildung mit einem dataframe"
+o2 = df.O2.mean()
+T_Abgas = df.T_Abgas[100:200].mean()
+print(f"Abgastemperatur: {round(T_Abgas)} °C")
+
 "Plot"
 fig1, ax = plt.subplots()
 # Set the format of the x-axis to hh:mm:ss
@@ -23,8 +28,8 @@ ax.xaxis.set_major_formatter(xformatter)
 ax.plot(df.Uhrzeit, df.CO, color="red",  label="CO")
 ax2 = ax.twinx()
 ax2.plot(df.Uhrzeit, df.O2, color="blue", label="O2")
-ax.set_ylabel("[ppm]",)
-ax2.set_ylabel(' [Vol %] und [kW]')
+ax.set_ylabel("CO [ppm]",)
+ax2.set_ylabel('O2 [Vol %]')
 ax.set_xlabel(' Time [hh,mm,ss]')
 ax.grid(True)
 ax.set_ylim([0,100])
