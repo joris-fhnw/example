@@ -4,12 +4,12 @@ from generalCode import plots
 from generalCode import edit_silana_excel as ed
 from generalCode import combsutionFunctions as cf
 import matplotlib
-matplotlib.use("Qt5Agg") #Qt5Agg
+matplotlib.use("Qt5Agg") #Qt5Agg // TkAgg
 
 
 
-show_plot = False
-save_fig=False
+show_plot = True
+save_fig=True
 
 
 " Daten Import"
